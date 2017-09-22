@@ -26,14 +26,15 @@ int main(int argc, char** argv) {
     int nYears=12;  //Number of compounding periods years
 
     //Perform Calculation / Call the function
-    float fv1=save1(pv,intr,nYears);
-    float fv2=save2(pv,intr,nYears);
-    float fv3=save3(pv,intr,nYears);
-    float fv4=save4(pv,intr,nYears);
-    float fv5=save5(pv,intr);
+    Savings savings = new Savings(pv,intr,nYears);
+    float fv1=savings.save1();
+    float fv2=savings.save2();
+    float fv3=savings.save3();
+    float fv4=savings.save4();
+    float fv5=savings.save5();
     float fv6;
-    save6(pv,intr,nYears,fv6);
-    float *fv7=save7(pv,intr,nYears+1);
+    save6(fv6);
+    float *fv7=savings.save7();
 
     //Display the results
     cout<<"Present Value   = $"<<pv<<endl;
@@ -45,7 +46,7 @@ int main(int argc, char** argv) {
     cout<<"Future Value    = $"<<fv4<<endl;
     cout<<"Future Value    = $"<<fv5<<endl;
     cout<<"Future Value    = $"<<fv6<<endl;
-    display(fv7,nYears+1);
+    display(fv7);
     
     //Deallocate memory
     delete []fv7;

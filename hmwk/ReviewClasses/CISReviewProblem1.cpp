@@ -34,7 +34,7 @@ void Prob3Table::calcTable() {
   //Calculate Column Sum
   for (int r = 0; r < this->rows; r++) {
     for (int c = 0; c < this->cols; c++) {
-      this->colSum[c] += this->table[(this->cols*r)+c];
+      this->colSum[c] += this->table[(this->cols*r) + c];
     }
   }
   //Calculate RowSum
@@ -59,19 +59,18 @@ Prob3Table::Prob3Table(char *file,int rows,int columns) {
   this->table = new int[this->rows * this->cols];
   int **temp  = new int*[this->rows];
   //Allocate memory for 2DArray
-  for (int r = 0; r < this->rows; r++)
-    for (int c = 0; c < this->cols; c++)
+  for (int r = 0; r < this->rows; r++) {
+      //Allocate temp table columns
       temp[r] = new int[this->cols];
-  //Read Table from File
-  for (int r = 0; r < this->rows; r++)
-    for (int c = 0; c < this->cols; c++)
-      infile>>temp[r][c];
-  //Copy Contents from 2DArray to 1DArray
-  for (int r = 0; r < this->rows; r++)
-    for (int c = 0; c < this->cols; c++) {
-      table[index] = temp[r][c];
-      index++;
-    }
+      for (int c = 0; c < this->cols; c++) {
+          //Read file contents
+          infile>>temp[r][c];
+          //Set table values
+          table[index] = temp[r][c];
+          //Increment table index
+          index++;
+      }
+  }
   //Free Memory
   for (int i = 0; i < this->rows; i++)
     delete [] temp[i];
@@ -81,8 +80,7 @@ Prob3Table::Prob3Table(char *file,int rows,int columns) {
   infile.close();
 }
 
-class Prob3TableInherited:public Prob3Table
-{
+class Prob3TableInherited:public Prob3Table {
 	protected:
 		int *augTable;                                  //Augmented Table with sums
 	public:
@@ -95,45 +93,41 @@ class Prob3TableInherited:public Prob3Table
 Prob3TableInherited::Prob3TableInherited(char *file,int rows,int columns):
                         Prob3Table(file,rows,columns) {
   int index = 0;
-  this->augTable = new int[(rows+1)*(columns+1)];
+  this->augTable = new int[(rows + 1) * (columns + 1)];
   //Input row values and row Sums
   for(int r = 0; r <= rows; r++) {
     for(int c = 0; c < columns; c++) {
-      if (r * columns + c == ((columns * ((r-1) + 1)) + (r-1)))
-        this->augTable[r*columns+c] = this->rowSum[r - 1];
+      if (r * columns + c == ((columns * ((r - 1) + 1)) + (r - 1)))
+        this->augTable[r * columns + c] = this->rowSum[r - 1];
       else {
-        this->augTable[r*columns+c] = this->table[index];
+        this->augTable[r * columns + c] = this->table[index];
         index++;
       }
     }
   }
   //Input column sums
   for (int c = 0; c < columns; c++)
-    this->augTable[((rows*(columns+1))+c)] = this->colSum[c];
+    this->augTable[((rows * (columns + 1)) + c)] = this->colSum[c];
   //Bottom RightMost Value
-  this->augTable[(((rows+1)*(columns+1))-1)] = this->grandTotal;
+  this->augTable[(((rows + 1) * (columns + 1)) - 1)] = this->grandTotal;
 }
 
 int main() {
 	cout<<"Entering problem number 3"<<endl;
-	int rows=5;
-	int cols=6;
+	int rows = 5;
+	int cols = 6;
 	Prob3TableInherited tab("Problem3.txt",rows,cols);
 	const int *naugT=tab.getTable();
-	for(int i=0;i<rows;i++)
-	{
-		for(int j=0;j<cols;j++)
-		{
+	for(int i=0;i<rows;i++) {
+		for(int j=0;j<cols;j++) {
 			cout<<naugT[i*cols+j]<<" ";
 		}
 		cout<<endl;
 	}
 	cout<<endl;
 	const int *augT=tab.getAugTable();
-	for(int i=0;i<=rows;i++)
-	{
-		for(int j=0;j<=cols;j++)
-		{
+	for(int i=0;i<=rows;i++) {
+		for(int j=0;j<=cols;j++) {
 			cout<<augT[i*(cols+1)+j]<<" ";
 		}
 		cout<<endl;
