@@ -37,17 +37,18 @@
             //Declare variables
             var pv=$_GET['Present_Value'];   //Present Value $'s
             var int=$_GET['Interest_Rate']/100; //Interest Rate %
-            var nYears=$_GET['Periods'];//Number of compounding periodsyears
+            var nYears=$_GET['Periods'];//Number of compounding periods years
+            var savings = Savings(pv,int,nYears);
 
             //Perform Calculation / Call the function
-            var fv1=save1(pv,int,nYears);
-            var fv2=save2(pv,int,nYears);
-            var fv3=save3(pv,int,nYears);
-            var fv4=save4(pv,int,nYears);
-            var fv5=save5(pv,int);
+            var fv1=savings.save1();
+            var fv2=savings.save2();
+            var fv3=savings.save3();
+            var fv4=savings.save4();
+            var fv5=savings.save5();
             var fv6={save:0};
-            save6(pv,int,nYears,fv6);
-            var fv7=save7(pv,int,nYears);
+            savings.save6(fv6);
+            var fv7=savings.save7();
 
             //Display the results
             document.write("<p>Present Value   = $"+pv+"</p>");
