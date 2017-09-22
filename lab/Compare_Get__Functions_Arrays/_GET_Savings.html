@@ -38,7 +38,7 @@
             var pv=$_GET['Present_Value'];   //Present Value $'s
             var int=$_GET['Interest_Rate']/100; //Interest Rate %
             var nYears=$_GET['Periods'];//Number of compounding periods years
-            var savings = Savings(pv,int,nYears);
+            var savings = new Savings(pv,int,nYears);
 
             //Perform Calculation / Call the function
             var fv1=savings.save1();

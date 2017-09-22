@@ -5,56 +5,59 @@
 
  */
 class Savings {
+    //Savings class constructor
     constructor(pv=0,intr=0,nYears=0) {
         this.pv = pv;
         this.intr = intr;
         this.nYears = nYears;
     }
     //Savings with a for-loop
-    save1(pv,int,n){
-        for(var year=1;year<=n;year++){
-            pv*=(1+int);
+    save1(){
+        var pVal = this.pv
+        for(var year=1;year<=this.nYears;year++){
+            pVal*=(1+this.intr);
         }
-        return pv;
+        return pVal;
     }
 
     //Savings with a power function
-    save2(pv,int,n){
-        return pv*Math.pow((1+int),n);
+    save2(){
+        return this.pv*Math.pow((1+this.intr),this.nYears);
     }
 
     //Savings with the exponential-log
-    save3(pv,int,n){
-        return pv*Math.exp(n*Math.log(1+int));
+    save3(){
+        return this.pv*Math.exp(this.nYears*Math.log(1+this.intr));
     }
 
     //Savings with recursion
-    save4(pv,int,n){
-        if(n<=0)return pv;
-        return save4(pv,int,n-1)*(1+int);
+    save4(pv=this.pv,intr=this.intr,nYears=this.nYears){
+        if(nYears<=0)return pv;
+        return this.save4(pv,intr,nYears-1)*(1+intr);
     }
 
     //Savings with a defaulted parameter
-    save5(pv,int,n=12){
-        for(var year=1;year<=n;year++){
-            pv*=(1+int);
+    save5(){
+        var pVal = this.pv;
+        for(var year=1;year<=this.nYears;year++){
+            pVal*=(1+this.intr);
         }
-        return pv;
+        return pVal;
     }
 
     //Savings with a reference object
-    save6(pv,int,n,fv){
-        fv.save=pv*Math.exp(n*Math.log(1+int));
+    save6(fv){
+        fv.save=this.pv*Math.exp(this.nYears*Math.log(1+this.intr));
     }
 
     //Savings with an array
-    save7(pv,int,n){
+    save7(){
         //Declare an array
         var fv=new Array();
         //Calculate all the values in the array
-        fv[0]=pv;
-        for(var year=1;year<=n;year++){
-            fv[year]=fv[year-1]*(1+int);
+        fv[0]=this.pv;
+        for(var year=1;year<=this.nYears;year++){
+            fv[year]=fv[year-1]*(1+this.intr);
         }
         return fv;
     }
