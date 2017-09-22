@@ -16,16 +16,17 @@
             $pv=100;   //Present Value $'s
             $int=0.06; //Interest Rate %
             $nYears=12;//Number of compounding periods years
+            $savings = new Savings($pv,$intr,$nYears);
 
             //Use the function to calculate the value
-            $fv1=save1($pv,$int,$nYears);//Future Value Calculation
-            $fv2=save2($pv,$int,$nYears);//Future Value Calculation
-            $fv3=save3($pv,$int,$nYears);//Future Value Calculation
-            $fv4=save4($pv,$int,$nYears);//Future Value Calculation
-            $fv5=save5($pv,$nYears);     //Future Value Calculation
+            $fv1=$savings.save1();//Future Value Calculation
+            $fv2=$savings.save2();//Future Value Calculation
+            $fv3=$savings.save3();//Future Value Calculation
+            $fv4=$savings.save4();//Future Value Calculation
+            $fv5=$savings.save5();     //Future Value Calculation
             $fv6;//Declare the future value to be returned
-            save6($pv,$int,$nYears,$fv6);//Future Value Calculation
-            $fv7=save7($pv,$int,$nYears);//Future Value Calculation
+            $savings.save6($fv6);//Future Value Calculation
+            $fv7=$savings.save7();//Future Value Calculation
 
             //Display results
             echo "<p> Present Value = $".$pv."</p>";
