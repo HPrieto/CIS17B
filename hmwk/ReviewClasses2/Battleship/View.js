@@ -3,21 +3,42 @@
     Author     : Head First Javascript Example Project
  */
 
+function view(msg, location) {
+    this.msg = msg;
+    this.location = location;
+}
 
-var view = {
-    displayMessage: function(msg) {
-        var messageArea = document.getElementById("messageArea");
-        messageArea.innerHTML = msg;
-    },
+/* view displayMessage function using es6 arrow function notation */
+view.prototype.displayMessage = () => {
+    var messageArea = document.getElementById("messageArea");
+    messageArea.innerHTML = this.msg;
+}
 
-    displayHit: function(location) {
-        var cell = document.getElementById(location);
-        cell.setAttribute("class", "hit");
-    },
+view.prototype.displayHit = () => {
+    var cell = document.getElementById(this.location);
+    cell.setAttribute("class", "hit");
+}
 
-    displayMiss: function(location) {
-        var cell = document.getElementById(location);
-        cell.setAttribute("class", "miss");
-    }
+view.prototype.displayMiss = () => {
+    var cell = document.getElementById(this.location);
+    cell.setAttribute("class", "miss");
+}
 
-};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
