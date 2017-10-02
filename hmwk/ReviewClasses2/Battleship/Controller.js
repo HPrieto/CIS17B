@@ -10,6 +10,7 @@ function controller() {
     this.guesses = 0;
 }
 
+/* controller processGuess function using arrow function notation */
 controller.prototype.processGuess = (guess) => {
     var location = this.parseGuess(guess);
     if (location) {
@@ -22,6 +23,7 @@ controller.prototype.processGuess = (guess) => {
     }
 }
 
+/* controller parseGuess function using arrow function notation */
 controller.prototype.parseGuess = (guess) => {
     var alphabet = ["A", "B", "C", "D", "E", "F", "G"];
 
