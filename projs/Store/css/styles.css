@@ -1,0 +1,82 @@
+body {
+	background-color: #B6E1FD;
+	font-family: 'Quicksand';
+}
+
+.navbar {
+	background-color: white;
+}
+
+.navbar-brand {
+	color: black !important;
+}
+
+.navbar-btn {
+	border-color: transparent;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-radius: 0;
+}
+
+.navbar-btn: hover {
+	border-color: black;
+	background-color: white;
+}
+
+.store-container {
+	background-color: white;
+	margin-top: 100px;
+	text-align: center;
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.img-container {
+	width: 200px;
+	height: 200px;
+	background-color: white;
+	margin: 0 auto;
+}
+
+.navbar-cart {
+	border-color: transparent;
+}
+
+.product-container {
+	margin-top: 50px;
+	margin-bottom: 50px;
+}
+
+.product-container button {
+	border-color: none;
+	border-radius: 0;
+	background-color: #A7E3E5;
+	color: white;
+}
+
+.product-container h4 {
+	font-weight: 400;
+}
+
+.product-container h5 {
+	font-size: 1.1em;
+}
+
+#myModalLabel {
+	font-size: 2.5em;
+}
+
+.cart-description {
+	text-align: left;
+}
+
+.cart-product-container {
+	margin-top: 50px;
+}
+
+.navbar-brand: hover {
+	cursor: pointer !important;
+}
