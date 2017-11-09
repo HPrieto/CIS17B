@@ -1,0 +1,84 @@
+body {
+	font-family: 'Roboto';
+	background-color: #E2E9EE;
+}
+
+.navbar {
+	background-color: white;
+}
+
+.navbar-container {
+	width: 70%;
+}
+
+.navbar-brand {
+	color: black;
+}
+
+.navbar-btn-unfocused {
+	text-align: center;
+	background-color: transparent;
+	border-bottom-color: transparent;
+	border-bottom-width: 2px;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-radius: 0;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: 25px;
+}
+
+.navbar-btn-unfocused:hover {
+	background-color: transparent;
+	border-bottom-color: #1997F0;
+	color: #1997F0;
+	padding-bottom: 3px;
+	margin-bottom: 11px;
+}
+
+.navbar-btn-focused {
+	text-align: center;
+	background-color: transparent;
+	border-bottom-width: 2px;
+	border-bottom-color: #1997F0;
+	color: #1997F0;
+	border-top: none;
+	border-right: none;
+	border-left: none;
+	border-radius: 0;
+	padding-left: 3px;
+	padding-right: 3px;
+	margin-left: 25px;
+}
+
+.navbar-btn-focused:hover {
+	background-color: transparent;
+	border-bottom-color: #1997F0;
+	color: #1997F0;
+}
+
+.questions-container {
+	background-color: white;
+	margin: 100px auto;
+	padding-bottom: 25px;
+}
+
+.questions-container h2 {
+	text-align: center;
+	font-family: 'Roboto';
+	font-weight: 300;
+}
+
+.answers {
+	width: 50%;
+	margin: 0 auto;
+}
+
+.answers span {
+	font-size: 1.25em;
+	font-family: 'Roboto';
+}
+
+@media screen and (max-width: 768px) {
+}
